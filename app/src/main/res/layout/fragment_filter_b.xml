@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    tools:context="com.bigmercu.qinxinjiajiao.UI.fragment.FilterB">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="请选择需要辅导的科目"
+        android:id="@+id/textView11"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/textView11">
+
+    <co.lujun.androidtagview.TagContainerLayout
+        android:id="@+id/MOMtagChecked"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0.0dip"
+        android:padding="10.0dip"
+        custom:container_background_color="#79ac0300"
+        custom:container_enable_drag="false"
+        custom:horizontal_interval="10.0dip"
+        custom:tag_background_color="#974b4b4b"
+        custom:tag_border_color="#bc000000"
+        custom:tag_clickable="true"
+        custom:tag_corner_radius="5.0dip"
+        custom:tag_text_color="#ff000000"
+        custom:tag_theme="random"
+        custom:vertical_interval="10.0dip" />
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="20.0px" />
+
+    <co.lujun.androidtagview.TagContainerLayout
+        android:id="@+id/MOMtag"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0.0dip"
+        android:padding="10.0dip"
+        custom:container_background_color="#790056ac"
+        custom:container_enable_drag="false"
+        custom:horizontal_interval="10.0dip"
+        custom:tag_background_color="#8e000000"
+        custom:tag_border_color="#bc000000"
+        custom:tag_clickable="true"
+        custom:tag_corner_radius="5.0dip"
+        custom:tag_text_color="#ffbbbbbb"
+        custom:tag_theme="none"
+        custom:vertical_interval="10.0dip" />
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="20.0px" />
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上一步"
+        android:id="@+id/button"
+        android:layout_marginBottom="29dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textView11"
+        android:layout_alignStart="@+id/textView11" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="完成"
+        android:id="@+id/button2"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="22dp"
+        android:layout_marginEnd="10dp" />
+
+
+</RelativeLayout>

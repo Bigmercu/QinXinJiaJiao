@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/order_rela"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fafafa"
+        android:baselineAligned="false"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预约课程"
+            android:textColor="#2c2c2c"
+            android:textSize="20dp" />
+        <co.lujun.androidtagview.TagContainerLayout
+            android:id="@+id/tagChecked_detial_checked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView43"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
+            custom:container_background_color="#ce374c56"
+            custom:container_enable_drag="false"
+            custom:horizontal_interval="10.0dp"
+            custom:tag_background_color="#97d8d8d8"
+            custom:tag_border_color="#bc000000"
+            custom:tag_clickable="true"
+            custom:tag_text_color="#ff000000"
+            custom:vertical_interval="10.0dp" />
+        <co.lujun.androidtagview.TagContainerLayout
+            android:id="@+id/tagChecked_detial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagChecked_detial_checked"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
+            custom:container_background_color="#79bababa"
+            custom:container_enable_drag="false"
+            custom:horizontal_interval="10.0dp"
+            custom:tag_background_color="#97d8d8d8"
+            custom:tag_border_color="#bc000000"
+            custom:tag_clickable="true"
+            custom:tag_text_color="#ff000000"
+            custom:vertical_interval="10.0dp" />
+
+        <LinearLayout
+            android:id="@+id/detial_linear_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagChecked_detial"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tagChecked_detial"
+                android:layout_weight="1"
+                android:text="预约时间"
+                android:textColor="#2c2c2c"
+                android:textSize="20dp" />
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView40"
+                android:layout_alignBottom="@+id/textView40"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="全选" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/detial_linear_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/detial_linear_1"
+            android:background="#ebebeb"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp">
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="一" />
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="二" />
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="三" />
+
+            <CheckBox
+                android:id="@+id/checkBox9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="四" />
+
+            <CheckBox
+                android:id="@+id/checkBox10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="五" />
+
+            <CheckBox
+                android:id="@+id/checkBox11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="六" />
+
+            <CheckBox
+                android:id="@+id/checkBox12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="日" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/detial_linear_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detial_linear_4"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/textView42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="课时费"
+                android:textColor="#2c2c2c"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50"
+                android:textSize="20sp"
+                android:textColor="@color/material_deep_teal_500" />
+
+            <TextView
+                android:id="@+id/textView46"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元/小时" />
+        </LinearLayout>
+
+        <com.appyvet.rangebar.RangeBar
+            android:id="@+id/rangebar_keshifei"
+            android:layout_width="match_parent"
+            android:layout_height="70.0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/detial_linear_2"
+            android:layout_marginTop="12dp"
+            android:background="#ebebeb"
+            app:connectingLineColor="#2c4751"
+            app:pinColor="@color/blue"
+            app:pinMaxFont="10dp"
+            app:rangeBar="false"
+            app:rangeBarColor="#8a8a8a"
+            app:selectorColor="@color/colorPrimaryA"
+            app:tickColor="@color/background_floating_material_light"
+            app:tickEnd="100.0"
+            app:tickInterval="5.0"
+            app:tickStart="25.0" />
+
+        <LinearLayout
+            android:id="@+id/detial_linear_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rangebar_keshifei"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="预约时长"
+                android:textColor="#2c2c2c"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="20sp"
+                android:textColor="@color/material_deep_teal_500" />
+
+            <TextView
+                android:id="@+id/textView48"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="小时/天" />
+        </LinearLayout>
+
+        <com.appyvet.rangebar.RangeBar
+            android:id="@+id/rangebar_keshi"
+            android:layout_width="match_parent"
+            android:layout_height="70.0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/detial_linear_3"
+            android:layout_marginTop="10dp"
+            android:background="#ebebeb"
+            app:connectingLineColor="#2c4751"
+            app:pinColor="@color/blue"
+            app:pinMaxFont="10dp"
+            app:rangeBar="false"
+            app:rangeBarColor="#8a8a8a"
+            app:selectorColor="@color/colorPrimaryA"
+            app:tickColor="@color/background_floating_material_light"
+            app:tickEnd="10.0"
+            app:tickInterval="1.0"
+            app:tickStart="1.0" />
+
+        <TextView android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="选择位置"
+            android:id="@+id/asdasdasde"
+            android:layout_below="@id/rangebar_keshi"
+            android:textColor="#2c2c2c"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp" />
+        <android.support.v7.widget.CardView
+            android:layout_below="@id/asdasdasde"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.amap.api.maps.MapView
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="222sp">
+            </com.amap.api.maps.MapView>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rela_identify"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                custom:layout_scrollFlags="exitUntilCollapsed|scroll">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/photo_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="350.0dp"
+                        android:background="@color/colorPrimaryA"
+                        android:scaleType="centerCrop"
+                        android:tint="#11000000"
+                        custom:layout_collapseMode="parallax"
+                        custom:layout_collapseParallaxMultiplier="0.9" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center|right"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/camera"
+                        android:layout_alignBottom="@+id/photo_bg"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="18dp"
+                        android:layout_marginEnd="18dp"
+                        android:background="#00ffffff"
+                        android:layout_marginBottom="40dp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:background="@drawable/imagesharp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            app:civ_border_color="#000000"
+                            app:civ_border_width="2dp"
+                            android:elevation="10dp"
+                            android:src="@drawable/touxiang"
+                            android:id="@+id/photo_touxiang"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true" />
+                    </RelativeLayout>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_below="@+id/photo_bg" />
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:id="@+id/main.framelayout.title"
+                    android:layout_width="match_parent"
+                    android:layout_height="90.0dp"
+                    android:layout_gravity="bottom|center"
+                    android:background="@color/colorAccent"
+                    android:orientation="vertical"
+                    custom:layout_collapseMode="parallax"
+                    custom:layout_collapseParallaxMultiplier="0.2">
+
+                    <LinearLayout
+                        android:id="@+id/maintitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="20dp">
+
+                        <TextView
+                            android:id="@+id/welcomename"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="bottom|center"
+                            android:text="Welcome"
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="30.0sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="4.0dp"
+                            android:text="上百万家长正在等待你的到来！"
+                            android:textColor="@android:color/secondary_text_light" />
+                    </LinearLayout>
+                </FrameLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/net"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="50.0dp"
+            android:scrollbars="none"
+            custom:behavior_overlapTop="80.0dp"
+            custom:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8.0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5.0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/trueName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            custom:hintAnimationEnabled="true"
+                            custom:hintEnabled="true">
+
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/trueNameE"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="11"
+                                android:inputType="text" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/IDnumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            custom:hintAnimationEnabled="true"
+                            custom:hintEnabled="true">
+
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/IDnumberE"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5.0dp">
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="性别："
+                            android:textAppearance="?android:textAppearanceMedium" />
+
+                        <RadioButton
+                            android:id="@+id/RXX"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:checked="false"
+                            android:text="男" />
+
+                        <RadioButton
+                            android:id="@+id/ROO"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:checked="false"
+                            android:text="女" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/school"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            custom:hintAnimationEnabled="true"
+                            custom:hintEnabled="true">
+
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/schoolE"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="11"
+                                android:inputType="text" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Spinner
+                            android:id="@+id/grade"
+                            style="@style/Platform.Widget.AppCompat.Spinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:prompt="@string/grade"
+                            android:spinnerMode="dialog" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/choose"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="请选择您想教的科目"
+                            android:textAppearance="?android:textAppearanceMedium" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="10.0px" />
+
+                        <co.lujun.androidtagview.TagContainerLayout
+                            android:id="@+id/tagChecked"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0.0dp"
+                            android:padding="10.0dp"
+                            custom:container_background_color="#79ac0300"
+                            custom:container_enable_drag="false"
+                            custom:horizontal_interval="10.0dp"
+                            custom:tag_background_color="#974b4b4b"
+                            custom:tag_border_color="#bc000000"
+                            custom:tag_clickable="true"
+                            custom:tag_corner_radius="5.0dp"
+                            custom:tag_text_color="#ff000000"
+                            custom:tag_theme="random"
+                            custom:vertical_interval="10.0dp" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="20.0px" />
+
+                        <co.lujun.androidtagview.TagContainerLayout
+                            android:id="@+id/tag"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0.0dp"
+                            android:padding="10.0dp"
+                            custom:container_background_color="#790056ac"
+                            custom:container_enable_drag="false"
+                            custom:horizontal_interval="10.0dp"
+                            custom:tag_background_color="#8e000000"
+                            custom:tag_border_color="#bc000000"
+                            custom:tag_clickable="true"
+                            custom:tag_corner_radius="5.0dp"
+                            custom:tag_text_color="#ffbbbbbb"
+                            custom:tag_theme="none"
+                            custom:vertical_interval="10.0dp" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="20.0px" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10.0dp"
+                        android:background="#ffeeeeee"
+                        android:orientation="vertical"
+                        android:padding="3.0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:layout_weight="1.0"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="至低" />
+
+                                <TextView
+                                    android:id="@+id/lowV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="   "
+                                    android:textColor="#ff1a5f77"
+                                    android:textSize="20.0dp"
+                                    android:textStyle="italic" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="元/小时" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="至高" />
+
+                                <TextView
+                                    android:id="@+id/hightV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="   "
+                                    android:textColor="#fffb5930"
+                                    android:textSize="20.0dp"
+                                    android:textStyle="italic" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="元/小时" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <com.appyvet.rangebar.RangeBar
+                            android:id="@+id/rangebar"
+                            android:layout_width="match_parent"
+                            android:layout_height="70.0dp"
+                            android:layout_marginLeft="5.0dp"
+                            android:layout_marginRight="5.0dp"
+                            custom:pinMaxFont="10.0dp"
+                            custom:tickEnd="500.0"
+                            custom:tickInterval="5.0"
+                            custom:tickStart="25.0" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/major"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            custom:hintAnimationEnabled="true"
+                            custom:hintEnabled="true">
+
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/majorE"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="11"
+                                android:inputType="text" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp">
+
+                            <TextView
+                                android:id="@+id/zcPhoto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="证书照片"
+                                android:textAppearance="?android:textAppearanceMedium"
+                                android:layout_weight="0.5" />
+                            <TextView
+                                android:id="@+id/picNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0/9"
+                                android:textAppearance="?android:textAppearanceMedium"
+                                android:textColor="@android:color/holo_red_light"
+                                android:layout_weight="1" />
+                            <ImageButton
+                                android:id="@+id/addPhoto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:background="#00ffffff"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/addphoto" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/gridLinear"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                        <GridView
+                            android:id="@+id/photoRecy"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:horizontalSpacing="@dimen/space_size"
+                            android:verticalSpacing="@dimen/space_size"
+                            android:numColumns="3"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/teachCareer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            custom:hintAnimationEnabled="true"
+                            custom:hintEnabled="true">
+
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/teachCareerE"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:minLines="2" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/submitInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_btn_black_frame"
+                        android:text="提 交 信 息"
+                        android:textSize="20.0dp" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="40.0px" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimary"
+            custom:layout_anchor="@+id/main.framelayout.title"
+            custom:theme="@style/ThemeOverlay.AppCompat.Dark"
+            custom:title="">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="10.0dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/main.textview.title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center_vertical"
+                    android:text="信息完成"
+                    android:textColor="@android:color/white"
+                    android:textSize="20.0sp" />
+
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <include layout="@layout/loading_view"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:visibility="gone" />
+</RelativeLayout>

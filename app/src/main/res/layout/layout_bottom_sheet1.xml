@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/tools"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:baselineAligned="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layout_transition"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_orange_light"
+                        android:orientation="vertical"
+                        android:id="@+id/linear_t"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/imageView12"
+                                android:src="@mipmap/cha"
+                                android:layout_gravity="center_vertical" />
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rela_animation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="年级科目："
+                                android:textColor="#090909"
+                                android:textSize="18sp"
+                                android:layout_gravity="center_vertical"
+                                android:id="@+id/dsfdsf" />
+
+                            <LinearLayout
+                                android:id="@+id/HGJFG"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:orientation="horizontal"
+                                android:layout_below="@+id/dsfdsf">
+
+                                <CheckBox
+                                    android:id="@+id/xxcheck"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="false"
+                                    android:text="小学" />
+
+                                <CheckBox
+                                    android:id="@+id/czcheck"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="false"
+                                    android:text="初中" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/safdasfrsa"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/HGJFG"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/gzcheck"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="false"
+                                    android:text="高中" />
+
+                                <CheckBox
+                                    android:id="@+id/yycheck"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="false"
+                                    android:text="艺术" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/moreOption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/safdasfrsa"
+                                android:layout_marginTop="5dp"
+                                android:orientation="vertical"
+                                android:animateLayoutChanges="true"
+                                android:visibility="gone">
+
+                                <TextView
+                                    android:id="@+id/textView32"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="性别:"
+                                    android:textColor="@color/abc_primary_text_material_light"
+                                    android:textSize="18sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:paddingLeft="10dp"
+                                    android:paddingRight="10dp">
+
+                                    <CheckBox
+                                        android:id="@+id/girlcheck"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:checked="false"
+                                        android:text="女" />
+
+                                    <CheckBox
+                                        android:id="@+id/boycheck"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:checked="false"
+                                        android:text="男" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_weight="0.5"
+                                    android:focusable="true"
+                                    android:focusableInTouchMode="true"
+                                    android:orientation="horizontal"
+                                    android:paddingLeft="10dp"
+                                    android:paddingRight="10dp">
+                                    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                                        android:id="@+id/spinnermm"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="选择学校(可选)"
+                                        app:met_floatingLabel="normal" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <Switch
+                            android:id="@+id/otherOptions"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="其他筛选"
+                            android:visibility="visible"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginBottom="7dp" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:animateLayoutChanges="true">
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="已选科目"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:id="@+id/checkedrela"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/choose_bg"
+                        android:visibility="gone">
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="100px" />
+
+                        <co.lujun.androidtagview.TagContainerLayout
+                            android:id="@+id/CtagChecked"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0.0dip"
+                            android:padding="10.0dip"
+                            custom:container_background_color="#000078ac"
+                            custom:container_enable_drag="false"
+                            custom:horizontal_interval="10.0dip"
+                            custom:tag_background_color="#b53131"
+                            custom:tag_border_color="#00000000"
+                            custom:tag_clickable="true"
+                            custom:tag_text_color="#ff000000"
+                            custom:tag_theme="none"
+                            custom:vertical_interval="10.0dip" />
+
+                        <TextView
+                            android:id="@+id/textView17"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="无已选科目"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="未选科目"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cardView"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/choose_bg">
+
+                        <co.lujun.androidtagview.TagContainerLayout
+                            android:id="@+id/Ctag"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0.0dip"
+                            android:padding="10.0dip"
+                            custom:container_background_color="#000056ac"
+                            custom:container_enable_drag="false"
+                            custom:horizontal_interval="10.0dip"
+                            custom:tag_clickable="true"
+                            custom:tag_corner_radius="0.0dip"
+                            custom:tag_text_color="#ffbbbbbb"
+                            custom:tag_theme="pure_teal"
+                            custom:vertical_interval="10.0dip" />
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginBottom="100dp"
+                            android:text="请先勾选分类"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/gou"
+            android:id="@+id/submitOptions"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

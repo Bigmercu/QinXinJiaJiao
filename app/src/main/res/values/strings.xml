@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">倾心家教</string>
+    <string name="saixuan">筛选</string>
+    <string name="spinner">请选择您的学校</string>
+    <string name="grade">请选择您的学历或在读年级</string>
+    <string name="default_pull_refresh_text">下拉刷新</string>
+    <string name="default_pull_load_text">上拉加载更多</string>
+    <string name="refresh_text">正在刷新</string>
+    <string name="load_text">正在加载</string>
+    <string name="release_to_refresh">松手刷新</string>
+    <string name="release_to_load">松手加载更多</string>
+    <declare-styleable name="AndroidTagView">
+        <attr name="vertical_interval" format="dimension" />
+        <attr name="horizontal_interval" format="dimension" />
+
+        <attr name="container_border_width" format="dimension" />
+        <attr name="container_border_radius" format="dimension" />
+        <attr name="container_border_color" format="color" />
+        <attr name="container_background_color" format="color" />
+        <attr name="container_enable_drag" format="boolean" />
+        <attr name="container_drag_sensitivity" format="float" />
+        <attr name="container_gravity" format="enum">
+            <enum name="left" value="3" />
+            <enum name="center" value="17" />
+            <enum name="right" value="5" />
+        </attr>
+
+        <attr name="tag_border_width" format="dimension" />
+        <attr name="tag_corner_radius" format="dimension" />
+        <attr name="tag_horizontal_padding" format="dimension" />
+        <attr name="tag_vertical_padding" format="dimension" />
+        <attr name="tag_text_size" format="dimension" />
+        <attr name="tag_bd_distance" format="dimension" />
+        <attr name="tag_text_color" format="color" />
+        <attr name="tag_border_color" format="color" />
+        <attr name="tag_background_color" format="color" />
+        <attr name="tag_max_length" format="integer" />
+        <attr name="tag_clickable" format="boolean" />
+        <attr name="tag_theme" format="enum">
+            <enum name="none" value="-1" />
+            <enum name="random" value="0" />
+            <enum name="pure_cyan" value="1" />
+            <enum name="pure_teal" value="2" />
+        </attr>
+        <attr name="tag_text_direction" format="enum">
+            <enum name="ltr" value="3" />
+            <enum name="rtl" value="4" />
+        </attr>
+    </declare-styleable>
+    <string name="title_activity_bigmercu">bigmercuActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="folder_all">所有照片</string>
+    <string name="preview">预览</string>
+    <string name="msg_no_camera">没有系统相机</string>
+    <string name="msg_amount_limit">已经达到最高选择数量</string>
+    <string name="action_done">完成</string>
+    <string name="photo_unit">张</string>
+    <string name="tip_take_photo">拍摄照片</string>
+    <string name="photo_houzui">_photoUpdate</string>
+    <string name="plantio_novo_cultura">选择学校</string>
+    <string name="name">吴克石哈</string>
+    <string name="_30_50">￥30-50元/小时</string>
+    <string name="_75">评价:75%好评</string>
+    <string name="mrwu">吴老师</string>
+    <string name="title_activity_main_detial">MainDetialActivity</string>
+</resources>

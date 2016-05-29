@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#204c88</color>
+    <color name="colorPrimaryDark">#1b4175</color>
+    <color name="colorAccent">#bd4541</color>
+    <color name="colorPrimaryA">#2f3d45</color>
+    <color name="colorPrimaryDarkA">#28353c</color>
+    <color name="teal">#c87440</color>
+    <color name="brown">#3c826b</color>
+    <color name="blue">#bd4541</color>
+    <color name="grey">#364b61</color>
+    <color name="orange">#3c8298</color>
+    <color name="wite">#9fffffff</color>
+    <color name="colorpure">#17212e</color>
+    <color name="colorpurple">#38da74</color>
+    <color name="colortab">#66CDAA</color>
+    <color name="colorcoltitle">#FFFFFF</color>
+    <color name="colorUsername">#5C5C5C</color>
+    <color name="colortsxtintro">#858585</color>
+    <color name="holo_orange_light">#ffffbb33</color>
+</resources>

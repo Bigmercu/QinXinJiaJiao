@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/testaaa"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/view"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="@color/colorPrimaryA">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_phoneNum"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/getCode"
+                android:orientation="vertical"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/phoneNum"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="11"
+                    android:inputType="phone"
+                    android:textColor="@android:color/primary_text_dark" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_YZCode"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/input_password"
+                android:layout_alignRight="@+id/input_phoneNum"
+                android:layout_below="@+id/input_phoneNum"
+                android:orientation="horizontal"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/YZCode"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="6"
+                    android:inputType="number"
+                    android:textColor="@android:color/primary_text_dark" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_password"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/input_YZCode"
+                app:errorEnabled="true"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/passwd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/getCode"
+                    android:ems="6"
+                    android:inputType="textPassword"
+                    android:textColor="@android:color/primary_text_dark" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_passwordAgain"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/input_password"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/passwdAgain"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="6"
+                    android:inputType="textPassword"
+                    android:textColor="@android:color/primary_text_dark" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/getCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/input_YZCode"
+                android:background="@drawable/bg_btn_black_frame"
+                android:text="获取验证码"
+                android:textColor="#ffffffff"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/yes2"
+                android:layout_width="20.0dip"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/yes"
+                android:visibility="invisible"
+                android:layout_alignBottom="@+id/getCode"
+                android:layout_toLeftOf="@+id/getCode"
+                android:layout_toStartOf="@+id/getCode" />
+
+            <ImageView
+                android:id="@+id/yes4"
+                android:layout_width="20.0dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/input_passwordAgain"
+                android:src="@mipmap/yes"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/submit_re"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_black_frame"
+        android:text="确   认"
+        android:textSize="20.0dip"
+        android:layout_below="@+id/view"
+        android:layout_alignLeft="@+id/view"
+        android:layout_alignStart="@+id/view"
+        android:layout_marginTop="31dp"
+        android:layout_alignRight="@+id/view"
+        android:layout_alignEnd="@+id/view"
+        android:textColor="@android:color/primary_text_light" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击确认即同意《服务协议》"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textSize="14.0dip"
+        android:layout_below="@+id/submit_re"
+        android:layout_alignLeft="@+id/submit_re"
+        android:layout_alignStart="@+id/submit_re"
+        android:layout_marginTop="25dp" />
+</RelativeLayout>
+
+    <include
+        layout="@layout/loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+</RelativeLayout>

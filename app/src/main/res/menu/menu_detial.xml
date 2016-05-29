@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context = "com.bigmercu.qinxinjiajiao.UI.activity.bigmercuActivity">
+    <item
+        android:id="@+id/zan_a"
+        android:title="收藏"
+        android:orderInCategory="70"
+        android:icon="@mipmap/zan_a"
+        app:showAsAction="always" />
+</menu>

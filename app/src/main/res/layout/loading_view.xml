@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<io.codetail.widget.RevealFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/submit_re"
+        android:background="#94000000"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/rela_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_load"
+            android:paddingBottom="10.0dp"
+            android:paddingLeft="25.0dp"
+            android:paddingRight="25.0dp"
+            android:paddingTop="25.0dp">
+
+            <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/spin_kit"
+                style="@style/SpinKitView.DoubleBounce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                app:SpinKit_Color="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spin_kit"
+                android:layout_marginTop="5.0dip"
+                android:text="提交中..."
+                android:textColor="#ffffffff"
+                android:textSize="15.0dip" />
+        </RelativeLayout>
+    </RelativeLayout>
+</io.codetail.widget.RevealFrameLayout>

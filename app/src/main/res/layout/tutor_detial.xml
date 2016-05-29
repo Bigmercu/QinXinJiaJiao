@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coodoo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="false"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.bigmercu.qinxinjiajiao.UI.activity.MainDetialActivity"
+    tools:showIn="@layout/activity_main_detial">
+
+    <LinearLayout
+        android:id="@+id/nidayeada"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/wokao"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/bg_touxiang"
+        android:orientation="vertical"
+        app:dependTargetY="300dp"
+        app:dependType="y"
+        app:dependsOn="@+id/app_bar_a"
+        app:layout_behavior="com.zoonref.SimpleViewBehavior"
+        app:targetY="-195dp">
+
+        <LinearLayout
+            android:id="@+id/linear_detial"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:id="@+id/wokao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="吴老师啊"
+                android:textColor="@color/wite"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView44"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/_30_50"
+                    android:textColor="@color/wite"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/textView45"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/_75"
+                    android:textColor="@color/wite"
+                    android:textStyle="italic" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
