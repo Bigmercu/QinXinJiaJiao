@@ -1,16 +1,16 @@
 package com.bigmercu.qinxinjiajiao.presenter.impl;
 
-import android.os.Bundle;
-
 import com.bigmercu.qinxinjiajiao.contract.bigmercuContract;
 import com.bigmercu.qinxinjiajiao.entity.DetialInfoEntity;
 import com.bigmercu.qinxinjiajiao.model.bigmercuModel;
 import com.bigmercu.qinxinjiajiao.model.impl.getDetialInfoModelImpl;
 
+import java.util.HashMap;
+
 /**
  * Created by bigmercu on 16/5/17.
  */
-public class bigmercuPresenterImpl implements bigmercuContract.Presenter,bigmercuModel.OnGetDetialInfoLinstener{
+public class bigmercuPresenterImpl implements bigmercuContract.Presenter,bigmercuModel.OnGetDetialInfoLinstener,bigmercuContract.orderListener{
 
     private bigmercuContract.View view;
     private getDetialInfoModelImpl getDetialInfoModel;
@@ -27,6 +27,11 @@ public class bigmercuPresenterImpl implements bigmercuContract.Presenter,bigmerc
     }
 
     @Override
+    public void updateOrder(HashMap map) {
+
+    }
+
+    @Override
     public void start() {
 
     }
@@ -40,4 +45,14 @@ public class bigmercuPresenterImpl implements bigmercuContract.Presenter,bigmerc
     public void OnFiled(DetialInfoEntity  entity) {
 
     }
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void onFiled(String mes) {
+    }
+
 }

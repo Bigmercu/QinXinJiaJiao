@@ -51,7 +51,6 @@ import com.bigmercu.qinxinjiajiao.UI.fragment.MessageFragment;
 import com.bigmercu.qinxinjiajiao.Util.Adapter.FragmentAdapter;
 import com.bigmercu.qinxinjiajiao.Util.OnItemSelectedListener;
 import com.bigmercu.qinxinjiajiao.Util.RxBus;
-import com.bigmercu.qinxinjiajiao.contract.bigmercuContract;
 import com.bigmercu.qinxinjiajiao.dao.DaoMaster;
 import com.bigmercu.qinxinjiajiao.dao.DaoSession;
 import com.bigmercu.qinxinjiajiao.dao.Person;
@@ -59,6 +58,7 @@ import com.bigmercu.qinxinjiajiao.dao.PersonDao;
 import com.bigmercu.qinxinjiajiao.entity.loginEntity;
 import com.bigmercu.qinxinjiajiao.entity.messageEntity;
 import com.bigmercu.qinxinjiajiao.presenter.impl.homePresenterImpl;
+import com.hhl.library.FlowTagLayout;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
@@ -69,8 +69,6 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import co.lujun.androidtagview.TagContainerLayout;
-import co.lujun.androidtagview.TagView;
 import de.greenrobot.dao.query.Query;
 import rx.Single;
 import rx.SingleSubscriber;
@@ -122,8 +120,8 @@ public class bigmercuActivity extends AppCompatActivity implements
 //    private Toolbar toolbar1;
     private AppBarLayout appbar;
     private loginEntity loginEntity;
-    private TagContainerLayout tagLayout;
-    private TagContainerLayout tagChenkedLayout;
+    private FlowTagLayout tagLayout;
+//    private TagGroup tagChenkedLayout;
     private String school = "";
     private int sex = -1;
     private int more = -1;
@@ -602,8 +600,8 @@ public class bigmercuActivity extends AppCompatActivity implements
     }
 
     private void setTags(final int[] tag) {
-        tagLayout = (TagContainerLayout) bottomsheet.findViewById(R.id.Ctag);
-        tagChenkedLayout = (TagContainerLayout) bottomsheet.findViewById(R.id.CtagChecked);
+        tagLayout = (FlowTagLayout) bottomsheet.findViewById(R.id.Ctag);
+//        tagChenkedLayout = (TagGroup) bottomsheet.findViewById(R.id.CtagChecked);
         TextView textView = (TextView) bottomsheet.findViewById(R.id.textView14);
         TextView textView1 = (TextView) bottomsheet.findViewById(R.id.textView15);
         TextView textView2 = (TextView) bottomsheet.findViewById(R.id.textView16);
@@ -701,23 +699,23 @@ public class bigmercuActivity extends AppCompatActivity implements
             }
         }
 
-        if (ClassListChecked != null) {
-            tagChenkedLayout.setTags(ClassListChecked);
-        }
-        tagLayout.setTags(arrayList);
+//        if (ClassListChecked != null) {
+//            tagChenkedLayout.setTags(ClassListChecked);
+//        }
+//        tagLayout.setTags(arrayList);
 
         if (arrayList.size() != 0) {
             relativeLayout.setVisibility(View.VISIBLE);
             textView1.setVisibility(View.VISIBLE);
             textView2.setVisibility(View.VISIBLE);
-            tagLayout.setTags(arrayList);
+//            tagLayout.setTags(arrayList);
             textView.setVisibility(View.GONE);
             if (ClassListChecked.size() > 0) {
                 textView3.setVisibility(View.GONE);
             }
         } else {
             relativeLayout.setVisibility(View.GONE);
-            tagLayout.removeAllTags();
+            tagLayout.removeAllViews();
             textView.setVisibility(View.VISIBLE);
             textView1.setVisibility(View.GONE);
             textView2.setVisibility(View.GONE);
@@ -726,45 +724,36 @@ public class bigmercuActivity extends AppCompatActivity implements
             }
         }
 
-        tagLayout.setOnTagClickListener(new TagView.OnTagClickListener() {
-            @Override
-            public void onTagClick(int position, String text) {
-                ClassListChecked.add(arrayList.get(position));
-                tagChenkedLayout.setTags(ClassListChecked);
-                arrayList.remove(position);
-                tagLayout.setTags(arrayList);
-                if (ClassListChecked.size() > 0) {
-                    textView3.setVisibility(View.GONE);
-                } else {
-                    textView3.setVisibility(View.VISIBLE);
-                }
-            }
+//        tagLayout.setOnTagClickListener(new TagGroup.OnTagClickListener() {
+//            @Override
+//            public void onTagClick(String tag) {
+//                ClassList = updateTag(tag,ClassList);
+//                tagLayout.setTags(arrayList);
+//                ClassListChecked.add(tag);
+//                tagChenkedLayout.setTags(ClassListChecked);
+//                if (ClassListChecked.size() > 0) {
+//                    textView3.setVisibility(View.GONE);
+//                } else {
+//                    textView3.setVisibility(View.VISIBLE);
+//                }
+//            }
+//        });
+//            tagChenkedLayout.setOnTagClickListener(new TagGroup.OnTagClickListener() {
+//                @Override
+//                public void onTagClick(String tag) {
+//                    ClassListChecked = updateTag(tag, ClassList);
+//                    tagChenkedLayout.setTags(ClassListChecked);
+//                    ClassList.add(tag);
+//                    tagLayout.setTags(ClassList);
+//                    if (ClassListChecked.size() > 0) {
+//                        textView3.setVisibility(View.GONE);
+//                    } else {
+//                        textView3.setVisibility(View.VISIBLE);
+//                    }
+//                }
+//            });
 
-            @Override
-            public void onTagLongClick(int position, String text) {
-            }
-        });
-        tagChenkedLayout.setOnTagClickListener(new TagView.OnTagClickListener() {
-            @Override
-            public void onTagClick(int position, String text) {
-                arrayList.add(ClassListChecked.get(position));
-                tagLayout.setTags(arrayList);
-                ClassListChecked.remove(position);
-                tagChenkedLayout.setTags(ClassListChecked);
-                if (ClassListChecked.size() > 0) {
-                    textView3.setVisibility(View.GONE);
-                } else {
-                    textView3.setVisibility(View.VISIBLE);
-                }
-            }
-
-            @Override
-            public void onTagLongClick(int position, String text) {
-
-            }
-        });
-
-    }
+        }
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
@@ -796,6 +785,15 @@ public class bigmercuActivity extends AppCompatActivity implements
         return statusBarHeight;
     }
 
+    public static List<String> updateTag(String tag, List<String> arrayList){
+        Iterator<String> it = arrayList.listIterator();
+        while (it.hasNext()){
+            if(tag.equals(it.next())){
+                it.remove();
+            }
+        }
+        return arrayList;
+    }
 
     //***********************************************getHight***********************************************//
 
@@ -846,6 +844,7 @@ public class bigmercuActivity extends AppCompatActivity implements
                     public void call(final messageEntity messageEntity) {
                         Intent i = new Intent(bigmercuActivity.this,MainDetialActivity.class);
                         i.putExtra("id",messageEntity.getMes());
+                        i.putExtra("uuid",uuid);
                         startActivity(i);
                         overridePendingTransition(R.anim.pull_in_right,R.anim.push_out_left);
                     }
@@ -951,4 +950,5 @@ public class bigmercuActivity extends AppCompatActivity implements
             rxSubscription.unsubscribe();
         }
     }
+
 }

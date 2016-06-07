@@ -252,43 +252,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="10.0px" />
 
-                        <co.lujun.androidtagview.TagContainerLayout
-                            android:id="@+id/tagChecked"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="0.0dp"
-                            android:padding="10.0dp"
-                            custom:container_background_color="#79ac0300"
-                            custom:container_enable_drag="false"
-                            custom:horizontal_interval="10.0dp"
-                            custom:tag_background_color="#974b4b4b"
-                            custom:tag_border_color="#bc000000"
-                            custom:tag_clickable="true"
-                            custom:tag_corner_radius="5.0dp"
-                            custom:tag_text_color="#ff000000"
-                            custom:tag_theme="random"
-                            custom:vertical_interval="10.0dp" />
-
-                        <Space
-                            android:layout_width="match_parent"
-                            android:layout_height="20.0px" />
-
-                        <co.lujun.androidtagview.TagContainerLayout
+                        <com.hhl.library.FlowTagLayout
                             android:id="@+id/tag"
+                            android:background="@drawable/choose_bg"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="0.0dp"
-                            android:padding="10.0dp"
-                            custom:container_background_color="#790056ac"
-                            custom:container_enable_drag="false"
-                            custom:horizontal_interval="10.0dp"
-                            custom:tag_background_color="#8e000000"
-                            custom:tag_border_color="#bc000000"
-                            custom:tag_clickable="true"
-                            custom:tag_corner_radius="5.0dp"
-                            custom:tag_text_color="#ffbbbbbb"
-                            custom:tag_theme="none"
-                            custom:vertical_interval="10.0dp" />
+                            android:layout_marginBottom="20dp"/>
 
                         <Space
                             android:layout_width="match_parent"

@@ -38,10 +38,13 @@ import android.widget.Toast;
 
 import com.appyvet.rangebar.RangeBar;
 import com.bigmercu.qinxinjiajiao.R;
+import com.bigmercu.qinxinjiajiao.Util.Adapter.TagAdapter;
 import com.bigmercu.qinxinjiajiao.Util.DeviceUuidFactory;
 import com.bigmercu.qinxinjiajiao.contract.identifyVerifyContract;
 import com.bigmercu.qinxinjiajiao.presenter.impl.identifyPresenterImpl;
 import com.bumptech.glide.Glide;
+import com.hhl.library.FlowTagLayout;
+import com.hhl.library.OnTagSelectListener;
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.yalantis.ucrop.UCrop;
 import com.yalantis.ucrop.UCropActivity;
@@ -65,7 +68,6 @@ import io.codetail.animation.ViewAnimationUtils;
 import me.nereo.multi_image_selector.MultiImageSelectorActivity;
 import me.nereo.multi_image_selector.adapter.ImageGridAdapter;
 import me.nereo.multi_image_selector.bean.Image;
-import rx.Observable;
 import rx.functions.Action1;
 import sj.mblog.L;
 
@@ -75,6 +77,7 @@ public class identityVerify extends AppCompatActivity implements identifyVerifyC
     private static final int REQUEST_IMAGE_PHOTO = 0x01;
     private static final int REQUEST_IMAGE_PHOTO_BG = 0x03;
     private static final int REQUEST_IMAGE_CA = 0x02;
+    private TagAdapter<String> mMobileTagAdapter;
 
 
     @Bind(R.id.trueName)
@@ -95,10 +98,8 @@ public class identityVerify extends AppCompatActivity implements identifyVerifyC
     RadioButton radioButtonXX;
     @Bind(R.id.ROO)
     RadioButton radioButtonOO;
-    @Bind(R.id.tagChecked)
-    co.lujun.androidtagview.TagContainerLayout tagContainerLayout;
     @Bind(R.id.tag)
-    co.lujun.androidtagview.TagContainerLayout mTagContainerLayout;
+    FlowTagLayout mTagContainerLayout;
     @Bind(R.id.welcomename)
     TextView welcome;
     @Bind(R.id.imageButton)
@@ -149,7 +150,6 @@ public class identityVerify extends AppCompatActivity implements identifyVerifyC
     private List<String> gradeList = new ArrayList<String>();
     private List<String> gradeList_teacher = new ArrayList<String>();
     private List<String> ClassList = new ArrayList<String>();
-    private List<String> ClassListChecked = new ArrayList<String>();
     private ArrayList<String> selectedPhotos = new ArrayList<>();
     private Map<String, String> ListMap = new HashMap<String, String>();
     private ArrayList<String> photos = new ArrayList<String>();
@@ -174,6 +174,7 @@ public class identityVerify extends AppCompatActivity implements identifyVerifyC
     private String teachCaree;
     public static UUID uuid;
     private String phone;
+    private String classChecked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -183,6 +184,7 @@ public class identityVerify extends AppCompatActivity implements identifyVerifyC
         setContentView(R.layout.activity_identity_verify);
         ButterKnife.bind(this);
         new identifyPresenterImpl(this);
+        mMobileTagAdapter = new TagAdapter<>(this);
         initData();
         initUI();
     }
@@ -369,36 +371,24 @@ public class identityVerify extends AppCompatActivity implements identifyVerifyC
             }
         });
 
-        mTagContainerLayout.setTags(ClassList);
 
-        mTagContainerLayout.setOnTagClickListener(new co.lujun.androidtagview.TagView.OnTagClickListener() {
+        mTagContainerLayout.setTagCheckedMode(FlowTagLayout.FLOW_TAG_CHECKED_MULTI);
+        mTagContainerLayout.setAdapter(mMobileTagAdapter);
+        mTagContainerLayout.setOnTagSelectListener(new OnTagSelectListener() {
             @Override
-            public void onTagClick(int position, String text) {
-                tagContainerLayout.addTag(ClassList.get(position));
-                ClassListChecked.add(ClassList.get(position));
-                mTagContainerLayout.removeTag(position);
-                ClassList.remove(position);
-            }
-
-            @Override
-            public void onTagLongClick(int position, String text) {
-            }
-        });
-
-        tagContainerLayout.setOnTagClickListener(new co.lujun.androidtagview.TagView.OnTagClickListener() {
-            @Override
-            public void onTagClick(int position, String text) {
-                mTagContainerLayout.addTag(ClassListChecked.get(position));
-                ClassList.add(ClassListChecked.get(position));
-                tagContainerLayout.removeTag(position);
-                ClassListChecked.remove(position);
-            }
-
-            @Override
-            public void onTagLongClick(int position, String text) {
-
+            public void onItemSelect(FlowTagLayout parent, List<Integer> selectedList) {
+                if(selectedList != null && selectedList.size() > 0){
+                    StringBuilder sb = new StringBuilder();
+                    for (int i : selectedList) {
+                        sb.append(parent.getAdapter().getItem(i));
+                        sb.append(",");
+                    }
+                    classChecked = sb.toString();
+                }
             }
         });
+        mMobileTagAdapter.onlyAddAll(ClassList);
+        mMobileTagAdapter.notifyDataSetChanged();
 
         rangeBar.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
             @Override
@@ -682,10 +672,10 @@ public class identityVerify extends AppCompatActivity implements identifyVerifyC
                     }
                 }
             });
-        } else if (ClassListChecked.size() == 0) {
+        } else if (classChecked.length() == 0) {
             Snackbar.make(photoRecy, "请务必选择您希望教授的科目", Snackbar.LENGTH_LONG).show();
-            nestedScrollView.smoothScrollTo(tagContainerLayout.getRight(), tagContainerLayout.getTop());
-            tagContainerLayout.requestFocus();
+            nestedScrollView.smoothScrollTo(mTagContainerLayout.getRight(), mTagContainerLayout.getTop());
+            mTagContainerLayout.requestFocus();
         } else {
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -706,15 +696,6 @@ public class identityVerify extends AppCompatActivity implements identifyVerifyC
                     animator.setDuration(1000);
                     animator.start();
                     int i = 0;
-                    final String[] subjectData = {""};
-                    Observable.from(ClassListChecked)
-                            .subscribe(new Action1<String>() {
-                                @Override
-                                public void call(String s) {
-                                    subjectData[0] += (s + ",");
-                                }
-                            });
-
                     L.d(idnumber);
                     ListMap.put("identify", identify);
                     ListMap.put("name", truename);
@@ -726,7 +707,7 @@ public class identityVerify extends AppCompatActivity implements identifyVerifyC
                     ListMap.put("schoolteach", school);
                     ListMap.put("teachCareer", teachCaree);
                     ListMap.put("sex", sex);
-                    ListMap.put("subject", subjectData[0]);
+                    ListMap.put("subject", classChecked);
                     ListMap.put("uuid", String.valueOf(uuid));
                     ListMap.put("phone", "13125375549");
                     if (path != null) {

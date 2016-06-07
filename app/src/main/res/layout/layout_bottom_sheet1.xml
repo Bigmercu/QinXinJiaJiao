@@ -223,21 +223,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="100px" />
 
-                        <co.lujun.androidtagview.TagContainerLayout
+                        <com.hhl.library.FlowTagLayout
                             android:id="@+id/CtagChecked"
                             android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="0.0dip"
-                            android:padding="10.0dip"
-                            custom:container_background_color="#000078ac"
-                            custom:container_enable_drag="false"
-                            custom:horizontal_interval="10.0dip"
-                            custom:tag_background_color="#b53131"
-                            custom:tag_border_color="#00000000"
-                            custom:tag_clickable="true"
-                            custom:tag_text_color="#ff000000"
-                            custom:tag_theme="none"
-                            custom:vertical_interval="10.0dip" />
+                            android:layout_height="wrap_content"/>
 
                         <TextView
                             android:id="@+id/textView17"
@@ -264,20 +253,10 @@
                         android:layout_margin="5dp"
                         android:background="@drawable/choose_bg">
 
-                        <co.lujun.androidtagview.TagContainerLayout
+                        <com.hhl.library.FlowTagLayout
                             android:id="@+id/Ctag"
                             android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="0.0dip"
-                            android:padding="10.0dip"
-                            custom:container_background_color="#000056ac"
-                            custom:container_enable_drag="false"
-                            custom:horizontal_interval="10.0dip"
-                            custom:tag_clickable="true"
-                            custom:tag_corner_radius="0.0dip"
-                            custom:tag_text_color="#ffbbbbbb"
-                            custom:tag_theme="pure_teal"
-                            custom:vertical_interval="10.0dip" />
+                            android:layout_height="wrap_content"/>
 
                         <TextView
                             android:id="@+id/textView14"

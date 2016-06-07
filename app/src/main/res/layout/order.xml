@@ -21,36 +21,18 @@
             android:text="预约课程"
             android:textColor="#2c2c2c"
             android:textSize="20dp" />
-        <co.lujun.androidtagview.TagContainerLayout
+        <com.hhl.library.FlowTagLayout
             android:id="@+id/tagChecked_detial_checked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView43"
-            android:layout_marginTop="10dp"
-            android:padding="6dp"
-            custom:container_background_color="#ce374c56"
-            custom:container_enable_drag="false"
-            custom:horizontal_interval="10.0dp"
-            custom:tag_background_color="#97d8d8d8"
-            custom:tag_border_color="#bc000000"
-            custom:tag_clickable="true"
-            custom:tag_text_color="#ff000000"
-            custom:vertical_interval="10.0dp" />
-        <co.lujun.androidtagview.TagContainerLayout
+            android:layout_marginTop="10dp"/>
+        <com.hhl.library.FlowTagLayout
             android:id="@+id/tagChecked_detial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tagChecked_detial_checked"
-            android:layout_marginTop="10dp"
-            android:padding="6dp"
-            custom:container_background_color="#79bababa"
-            custom:container_enable_drag="false"
-            custom:horizontal_interval="10.0dp"
-            custom:tag_background_color="#97d8d8d8"
-            custom:tag_border_color="#bc000000"
-            custom:tag_clickable="true"
-            custom:tag_text_color="#ff000000"
-            custom:vertical_interval="10.0dp" />
+            android:layout_below="@id/textView43"
+            android:layout_marginTop="10dp"/>
 
         <LinearLayout
             android:id="@+id/detial_linear_1"

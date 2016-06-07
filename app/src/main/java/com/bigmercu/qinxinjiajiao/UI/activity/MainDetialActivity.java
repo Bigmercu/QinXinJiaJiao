@@ -1,5 +1,7 @@
 package com.bigmercu.qinxinjiajiao.UI.activity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -7,6 +9,7 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
@@ -14,6 +17,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -33,13 +37,13 @@ import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
-import com.amap.api.maps.model.MyLocationStyle;
 import com.appyvet.rangebar.RangeBar;
 import com.bigmercu.qinxinjiajiao.R;
 import com.bigmercu.qinxinjiajiao.contract.bigmercuContract;
 import com.bigmercu.qinxinjiajiao.entity.DetialInfoEntity;
 import com.bigmercu.qinxinjiajiao.presenter.impl.bigmercuPresenterImpl;
 import com.github.florent37.picassopalette.PicassoPalette;
+import com.hhl.library.FlowTagLayout;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -48,9 +52,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
-import co.lujun.androidtagview.TagContainerLayout;
-import co.lujun.androidtagview.TagView;
 import de.hdodenhof.circleimageview.CircleImageView;
+//import me.gujun.android.taggroup.TagGroup;
 import sj.mblog.L;
 
 public class MainDetialActivity extends AppCompatActivity implements
@@ -68,6 +71,7 @@ public class MainDetialActivity extends AppCompatActivity implements
     private LatLng latLng = null;
     private byte isZaned = 1 << 1;
     private boolean isAuto = false;
+    private boolean isAuto1 = false;
 
     @Bind(R.id.textView37)
     TextView loading;
@@ -133,9 +137,13 @@ public class MainDetialActivity extends AppCompatActivity implements
     @Bind(R.id.rangebar_keshi)
     RangeBar rangeBarKeshiLong;
     @Bind(R.id.tagChecked_detial)
-    TagContainerLayout tagContainerLayout;
+    FlowTagLayout tagContainerLayout;
     @Bind(R.id.tagChecked_detial_checked)
-    TagContainerLayout tagContainerLayoutChecked;
+    FlowTagLayout tagContainerLayout_checked;
+
+
+    private String tutorId;
+    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,29 +154,62 @@ public class MainDetialActivity extends AppCompatActivity implements
         loading.setVisibility(View.VISIBLE);
         new bigmercuPresenterImpl(this);
         toolbar1.inflateMenu(R.menu.menu_detial);
-        presenter.getDetialInfo(getIntent().getStringExtra("id"));
+        tutorId = getIntent().getStringExtra("id");
+        userId = getIntent().getStringExtra("uuid");
+        presenter.getDetialInfo(tutorId);
         setSupportActionBar(toolbar1);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(null);
         initMap(savedInstanceState);
         initDetialLinstner();
-        mlocationClient.startLocation();
+    }
+
+        /*tutor_id 家教id, user_id 预约者id,
+        王老师  19:33:37
+        （coachSub） 预约课程
+        王老师  19:33:45
+        (schooltime) 上课时间
+        王老师  19:33:55
+        (hour)一次上几个小时
+        王老师  19:34:03
+        (timePay) 每小时多少钱
+        王老师  19:34:09
+        (classPI)预约地点*/
+
+    @OnClick(R.id.detial_fab)
+    void fabClick() {
+        if (ns_1.getVisibility() == View.GONE) {
+            ns.setVisibility(View.GONE);
+            ns_1.setVisibility(View.VISIBLE);
+            fab.setImageResource(R.mipmap.gou);
+            mlocationClient.startLocation();
+        } else {
+            loading.setVisibility(View.VISIBLE);
+            String tutorID = tutorId;
+            String userID = uuid;
+            String coachSub;
+            String schoolTime = getSchoolTime();
+            String hour = rangeBarKeshiLong.getLeftPinValue();
+            L.d("hour");
+            String timePay = rangeBarKeshiLong.getLeftPinValue();
+            String classPI;
+        }
     }
 
     private void initMap(Bundle savedInstanceState) {
         // 自定义系统定位蓝点
-        MyLocationStyle myLocationStyle = new MyLocationStyle();
-        // 自定义定位蓝点图标
-        myLocationStyle.myLocationIcon(BitmapDescriptorFactory.fromResource(R.mipmap.in));
-        // 自定义精度范围的圆形边框颜色
-        myLocationStyle.strokeColor(Color.RED);
-        //自定义精度范围的圆形边框宽度
-        myLocationStyle.strokeWidth(2);
+//        MyLocationStyle myLocationStyle = new MyLocationStyle();
+//        // 自定义定位蓝点图标
+//        myLocationStyle.myLocationIcon(BitmapDescriptorFactory.fromResource(R.mipmap.in));
+//        // 自定义精度范围的圆形边框颜色
+//        myLocationStyle.strokeColor(Color.RED);
+//        //自定义精度范围的圆形边框宽度
+//        myLocationStyle.strokeWidth(2);
         // 将自定义的 myLocationStyle 对象添加到地图上
         mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
         aMap = mapView.getMap();
-        aMap.setMyLocationStyle(myLocationStyle);
+//        aMap.setMyLocationStyle(myLocationStyle);
 
         aMap.setLocationSource(this);
         aMap.getUiSettings().setMyLocationButtonEnabled(true);
@@ -221,10 +262,22 @@ public class MainDetialActivity extends AppCompatActivity implements
                 latLng = new LatLng(aMapLocation.getLatitude(), aMapLocation.getLongitude());
                 aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
                 mListener.onLocationChanged(aMapLocation);// 显示系统小蓝点
+                deactivate();
             } else {
                 String errText = "定位失败," + aMapLocation.getErrorCode() + ": " + aMapLocation.getErrorInfo();
                 L.d(errText);
             }
+        }
+        if (aMap != null) {
+            aMap.moveCamera(CameraUpdateFactory.zoomTo(16));
+            ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(fab, "translationX", -150);
+            ObjectAnimator objectAnimator1 = ObjectAnimator.ofFloat(fab, "translationY", -150);
+            objectAnimator.setDuration(1000);
+            objectAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.play(objectAnimator1)
+                    .with(objectAnimator);
+            animatorSet.start();
         }
     }
 
@@ -249,12 +302,14 @@ public class MainDetialActivity extends AppCompatActivity implements
     }
 
     private void initDetialLinstner() {
+        rangeBarKeshi.setSeekPinByValue(50);
         rangeBarKeshi.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
             @Override
             public void onRangeChangeListener(RangeBar rangeBar, int leftPinIndex, int rightPinIndex, String leftPinValue, String rightPinValue) {
                 textViewKeshi.setText(rightPinValue);
             }
         });
+        rangeBarKeshiLong.setSeekPinByValue(3);
         rangeBarKeshiLong.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
             @Override
             public void onRangeChangeListener(RangeBar rangeBar, int leftPinIndex, int rightPinIndex, String leftPinValue, String rightPinValue) {
@@ -262,32 +317,20 @@ public class MainDetialActivity extends AppCompatActivity implements
             }
         });
 
-        tagContainerLayout.setOnTagClickListener(new TagView.OnTagClickListener() {
-            @Override
-            public void onTagClick(int position, String text) {
-                L.d(position);
-                tagContainerLayoutChecked.addTag(text);
-                tagContainerLayout.removeTag(position);
-            }
+//        tagContainerLayout.setOnTagClickListener(new TagView.OnTagClickListener() {
+//            @Override
+//            public void onTagClick(int position, String text) {
+//                L.d(text);
+//                tagContainerLayout_checked.addTag(text);
+//                tagContainerLayout.removeTag(position);
+//            }
+//
+//            @Override
+//            public void onTagLongClick(int position, String text) {
+//
+//            }
+//        });
 
-            @Override
-            public void onTagLongClick(int position, String text) {
-
-            }
-        });
-
-        tagContainerLayoutChecked.setOnTagClickListener(new TagView.OnTagClickListener() {
-            @Override
-            public void onTagClick(int position, String text) {
-                tagContainerLayout.addTag(text);
-                tagContainerLayoutChecked.removeTag(position);
-            }
-
-            @Override
-            public void onTagLongClick(int position, String text) {
-
-            }
-        });
 
         toolbar1.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -313,7 +356,7 @@ public class MainDetialActivity extends AppCompatActivity implements
                 }
             }
         });
-        tagContainerLayout = (TagContainerLayout) findViewById(R.id.tagChecked_detial);
+//        tagContainerLayout = (TagContainerLayout) findViewById(R.id.tagChecked_detial);
         ns.setVisibility(View.INVISIBLE);
         ns_1.setVisibility(View.GONE);
         Picasso.with(getApplicationContext())
@@ -330,21 +373,7 @@ public class MainDetialActivity extends AppCompatActivity implements
     public void setDetialInfo(DetialInfoEntity detialInfo) {
         loading.setVisibility(View.GONE);
         ns.setVisibility(View.VISIBLE);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (latLng != null) {
-                    mlocationClient.stopLocation();
-                    mlocationClient.onDestroy();
-                } else {
-                    aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
-                }
-                ns.setVisibility(View.GONE);
-                ns_1.setVisibility(View.VISIBLE);
-                fab.setImageResource(R.mipmap.gou);
-            }
-        });
-        tagContainerLayout.setTags(new String[]{"sadasdas", "sadasdas", "sadasdas", "sadasdas", "sadasdas", "sadasdas", "sadasdas"});
+//        tagContainerLayout.setTags(new String[]{"sadasdas", "sadasdas", "sadasdas", "sadasdas", "sadasdas", "sadasdas", "sadasdas"});
         String uri = "http://192.168.1.106/enterprise/Public/" + detialInfo.getData().getTutor_profile();
         Picasso.with(getApplicationContext()).load(R.drawable.touxiang).into(circleImageView,
                 PicassoPalette.with(uri, circleImageView)
@@ -368,6 +397,19 @@ public class MainDetialActivity extends AppCompatActivity implements
         detial_name.setText(detialInfo.getData().getTutor_name());
         textView1.setText(detialInfo.getData().getTutor_time_pay());
         textView2.setText(detialInfo.getData().getTutor_school());
+//        if(latLng!=null){
+//            deactivate();
+//        }
+    }
+
+    @Override
+    public void orderSuccess() {
+        L.d("success");
+    }
+
+    @Override
+    public void orderFiled(String mes) {
+        Snackbar.make(ns_1, mes, Snackbar.LENGTH_LONG).show();
     }
 
     @OnClick(R.id.erweima)
@@ -378,7 +420,7 @@ public class MainDetialActivity extends AppCompatActivity implements
 
     @OnCheckedChanged(R.id.checkBox5)
     void checkAll(boolean checked) {
-        if(!isAuto) {
+        if (!isAuto) {
             hoose1.setChecked(checked);
             hoose2.setChecked(checked);
             hoose3.setChecked(checked);
@@ -386,28 +428,33 @@ public class MainDetialActivity extends AppCompatActivity implements
             hoose5.setChecked(checked);
             hoose6.setChecked(checked);
             hoose7.setChecked(checked);
+            isAuto1 = true;
+        } else {
+            isAuto1 = false;
             isAuto = false;
         }
     }
 
-    @OnCheckedChanged({R.id.checkBox6,R.id.checkBox7,
-            R.id.checkBox8,R.id.checkBox9,
-            R.id.checkBox10,R.id.checkBox11,R.id.checkBox12})
-    void checkOne(){
-        if(!hoose1.isChecked() ||
-                !hoose2.isChecked() || !hoose6.isChecked() ||
-                !hoose3.isChecked() || !hoose7.isChecked() ||
-                !hoose4.isChecked() || !hoose5.isChecked()){
-            allChoose.setChecked(false);
-            isAuto = true;
-        }
-
-        if(hoose1.isChecked() &&
-                hoose2.isChecked() && hoose6.isChecked() &&
-                hoose3.isChecked() && hoose7.isChecked() &&
-                hoose4.isChecked() && hoose5.isChecked()){
-            allChoose.setChecked(true);
-            isAuto = true;
+    @OnCheckedChanged({R.id.checkBox6, R.id.checkBox7,
+            R.id.checkBox8, R.id.checkBox9,
+            R.id.checkBox10, R.id.checkBox11, R.id.checkBox12})
+    void checkOne() {
+        if (!isAuto1) {
+            if (hoose1.isChecked() &&
+                    hoose2.isChecked() && hoose3.isChecked() && hoose4.isChecked() && hoose5.isChecked() && hoose6.isChecked() && hoose7.isChecked()) {
+                if (hoose1.isChecked()) {
+                    isAuto = true;
+                    allChoose.setChecked(true);
+                } else {
+                    allChoose.setChecked(false);
+                    isAuto = true;
+                }
+            } else {
+                if (allChoose.isChecked()) {
+                    isAuto = true;
+                    allChoose.setChecked(false);
+                }
+            }
         }
     }
 
@@ -419,6 +466,7 @@ public class MainDetialActivity extends AppCompatActivity implements
 
     @Override
     public void deactivate() {
+        L.d("deactivate");
         mListener = null;
         if (mlocationClient != null) {
             mlocationClient.stopLocation();
@@ -458,5 +506,31 @@ public class MainDetialActivity extends AppCompatActivity implements
     @Override
     public void setPresenter(bigmercuContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    private String getSchoolTime() {
+        String schoolTime = "";
+        if (hoose1.isChecked()) {
+            schoolTime += 1;
+        }
+        if (hoose2.isChecked()) {
+            schoolTime += 2;
+        }
+        if (hoose3.isChecked()) {
+            schoolTime += 3;
+        }
+        if (hoose4.isChecked()) {
+            schoolTime += 4;
+        }
+        if (hoose5.isChecked()) {
+            schoolTime += 5;
+        }
+        if (hoose6.isChecked()) {
+            schoolTime += 6;
+        }
+        if (hoose7.isChecked()) {
+            schoolTime += 7;
+        }
+        return schoolTime;
     }
 }

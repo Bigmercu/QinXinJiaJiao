@@ -25,13 +25,13 @@
             android:name="com.amap.api.v2.apikey"
             android:value="898025b471f869a62abc78defc8ec3d7" />
 
-        <activity android:name=".UI.activity.FirstActivity"></activity>
-        <activity android:name=".UI.activity.RegisterActivity"></activity>
+        <activity android:name=".UI.activity.FirstActivity" />
+        <activity android:name=".UI.activity.RegisterActivity" />
         <activity
             android:name=".UI.activity.identityVerify"
             android:launchMode="singleTask"
             android:theme="@style/AppThemeNOactionBar"
-            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
@@ -43,29 +43,28 @@
             android:name=".UI.activity.bigmercuActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".UI.activity.LoginActivity"
             android:launchMode="singleTop"
-            android:theme="@style/AppThemeNOactionBar"></activity>
+            android:theme="@style/AppThemeNOactionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".UI.activity.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/FullscreenTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/FullscreenTheme" />
 
         <service android:name="com.amap.api.location.APSService" />
 
         <activity
             android:name=".UI.activity.MainDetialActivity"
             android:label="@string/title_activity_main_detial"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
