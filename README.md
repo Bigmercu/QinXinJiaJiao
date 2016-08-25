@@ -1,2 +1,2 @@
 # QinXinJiaJiao
-MVP + RETROFIT + BUTTERKNIF  真实项目
+MVP + RETROFIT + RXjAVA +  BUTTERKNIF  真实项目 不完整
